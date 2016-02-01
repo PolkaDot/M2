@@ -5,15 +5,13 @@ defaultTasks "jar"
 
 sourceCompatibility = 1.8
 version = "1.0"
-mainClassName='edu.gatech.oad.antlab.pkg1.AntLabMain'
 
  
  jar{
     manifest.attributes "Implementation-Title" : "M2 Gradle" ,
                         "Implementation-Version" : version,
-                        "Main-Class": mainClassName
+                        "Main-Class": "edu.gatech.oad.antlab.pkg1.AntLabMain",
                         "Class-Path" : "lib/resources.jar"
-    }
 
     destinationDir = file(".")
     archiveName = "akc3.jar"
