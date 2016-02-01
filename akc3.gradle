@@ -1,0 +1,28 @@
+apply plugin: "java"
+
+
+defaultTasks "jar"
+
+sourceCompatibility = 1.8
+version = "1.0"
+mainClassName='edu.gatech.oad.antlab.pkg1.AntLabMain'
+
+ 
+ jar{
+    manifest.attributes "Implementation-Title" : "M2 Gradle" ,
+                        "Implementation-Version" : version,
+                        "Main-Class": mainClassName
+                        "Class-Path" : "lib/resources.jar"
+    }
+
+    destinationDir = file(".")
+    archiveName = "akc3.jar"
+}
+
+dependencies {
+    compile files("lib/resources.jar")
+}
+
+repositories {
+   mavenCentral()
+}
