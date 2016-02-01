@@ -1,0 +1,32 @@
+// Set jar as the default task
+defaultTasks 'jar'
+
+// import tasks such as compileJava, compileTestJava, clean, javadoc, jar
+apply plugin: 'java'
+
+
+// set up some variables
+sourceCompatibility = 1.8
+version = '1.0'
+
+// Define the contents of the jar file
+jar {
+    manifest {
+        attributes 'Implementation-Title' : 'M2',
+                    'Implementation-Version': version,
+                    'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+                    'Class-Path' : 'lib/resources.jar'
+    }
+
+    destinationDir = file(".")
+    archiveName = 'yjas3.jar'
+}
+
+dependencies {
+    compile files('lib/resources.jar')
+}
+
+// set-up location for repositories of any libraries that need to be downloaded
+repositories {
+    mavenCentral()
+}
